@@ -23,7 +23,16 @@ jobs:
         pip install nbconvert
         pip install jupyter
         pip install ipykernel
-        pip install gdown  # Installa gdown per scaricare da Google Drive
+        pip install gdown
+        pip install requests pandas openpyxl
+        pip install selenium
+        pip install reportlab
+        pip install beautifulsoup4
+        pip install python-telegram-bot nest_asyncio
+        pip install matplotlib scipy
+        pip install gspread
+        pip install pillow  # Per importare PIL
+        pip install gspread_dataframe  # Per gestire Google Sheets
 
     - name: Execute Notebook
       run: |
