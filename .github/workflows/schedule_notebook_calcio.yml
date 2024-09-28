@@ -23,7 +23,7 @@ jobs:
         pip install nbconvert
         pip install jupyter
         pip install ipykernel
-        pip install gdown
+        pip install gdown  # Per scaricare file da Google Drive
         pip install requests pandas openpyxl
         pip install selenium
         pip install reportlab
@@ -33,6 +33,11 @@ jobs:
         pip install gspread
         pip install pillow  # Per importare PIL
         pip install gspread_dataframe  # Per gestire Google Sheets
+
+    - name: Download file from Google Drive
+      run: |
+        # Scarica il file da Google Drive usando gdown
+        gdown https://drive.google.com/uc?id=YOUR_FILE_ID -O /path/to/downloaded/file
 
     - name: Execute Notebook
       run: |
