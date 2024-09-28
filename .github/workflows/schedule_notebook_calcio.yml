@@ -1,14 +1,14 @@
-name: Execute Calcio
+name: Execute Soccer Notebook
 
 on:
   schedule:
-    - cron: '0 0/4 * * *'  # Esecuzione Calcio
+    - cron: '0 0/4 * * *'  # Esegui ogni 4 ore
   workflow_dispatch:
 
 jobs:
   execute-notebook:
     runs-on: ubuntu-latest
-    
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
@@ -18,12 +18,13 @@ jobs:
       with:
         python-version: '3.8'
 
-    - name: Install Jupyter and dependencies
+    - name: Install dependencies
       run: |
         pip install nbconvert
         pip install jupyter
         pip install ipykernel
+        pip install gdown  # Installa gdown per scaricare da Google Drive
 
     - name: Execute Notebook
       run: |
-        jupyter nbconvert --to notebook --execute Esecuzione_soccer.ipynb --output Esecuzione_soccer.ipynb
+        jupyter nbconvert --to notebook --execute Esecuzione_soccer.ipynb --output executed_notebook.ipynb
