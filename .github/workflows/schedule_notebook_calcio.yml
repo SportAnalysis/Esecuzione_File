@@ -1,8 +1,8 @@
-name: Execute Colab Notebook
+name: Execute Calcio
 
 on:
   schedule:
-    - cron: '0 0/4 * * *'  # Ogni 4 ore a partire dalla mezzanotte
+    - cron: '0 0/4 * * *'  # Esecuzione Calcio
   workflow_dispatch:
 
 jobs:
@@ -23,8 +23,7 @@ jobs:
         pip install nbconvert
         pip install jupyter
         pip install ipykernel
-        python -m ipykernel install --user --name=python3
 
     - name: Execute Notebook
       run: |
-        jupyter nbconvert --to notebook --execute Execute_soccer.ipynb --output executed_notebook.ipynb --ExecutePreprocessor.kernel_name=python3
+        jupyter nbconvert --to notebook --execute your_notebook.ipynb --output executed_notebook.ipynb
