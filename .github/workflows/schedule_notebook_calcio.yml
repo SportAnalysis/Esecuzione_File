@@ -41,4 +41,4 @@ jobs:
 
     - name: Execute Notebook
       run: |
-        jupyter nbconvert --to notebook --execute Esecuzione_soccer.ipynb --output executed_notebook.ipynb
+        jupyter nbconvert --to notebook --execute ESECUZIONE_NOTEBOOK_CALCIO.ipynb --output executed_notebook.ipynb
