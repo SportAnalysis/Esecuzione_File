@@ -2,13 +2,13 @@ name: Execute Colab Notebook
 
 on:
   schedule:
-    - cron: '0 0/4 * * *'  # Ogni 4 ore a partire da mezzanotte
+    - cron: '0 0/4 * * *'  # Ogni 4 ore a partire dalla mezzanotte
   workflow_dispatch:
 
 jobs:
   execute-notebook:
     runs-on: ubuntu-latest
-
+    
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
@@ -18,10 +18,13 @@ jobs:
       with:
         python-version: '3.8'
 
-    - name: Install dependencies
+    - name: Install Jupyter and dependencies
       run: |
         pip install nbconvert
+        pip install jupyter
+        pip install ipykernel
+        python -m ipykernel install --user --name=python3
 
     - name: Execute Notebook
       run: |
-        jupyter nbconvert --to notebook --execute Esecuzione_soccer.ipynb --output executed_notebook.ipynb
+        jupyter nbconvert --to notebook --execute Execute_soccer.ipynb --output executed_notebook.ipynb --ExecutePreprocessor.kernel_name=python3
