@@ -37,3 +37,7 @@ jobs:
     - name: Execute Notebook
       run: |
         jupyter nbconvert --to notebook --execute ESECUZIONE_NOTEBOOK_CALCIO.ipynb --output executed_notebook.ipynb
+
+    - name: Print output notebook
+      run: |
+        cat executed_notebook.ipynb
