@@ -42,7 +42,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Attendere prima di eseguire il secondo job
-        run: sleep 600  # Attendere 10 minuti
+        run: sleep 1800  # Attendere 30 minuti
         
       - name: Checkout repository
         uses: actions/checkout@v2
