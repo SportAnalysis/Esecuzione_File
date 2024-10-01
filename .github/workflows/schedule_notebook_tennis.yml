@@ -1,4 +1,4 @@
-name: Execute Tennis Notebook Femminile
+name: Execute Tennis Notebook ATP e WTA
 
 on:
   schedule:
