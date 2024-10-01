@@ -2,7 +2,7 @@ name: Execute Tennis Notebook Femminile
 
 on:
   schedule:
-    - cron: '*/210 * * * *'  # Esegui il primo job ogni 3 ore e mezza
+    - cron: '30 */3 * * *'  primo job ogni 3 ore e mezza
   workflow_dispatch:
 
 jobs:
