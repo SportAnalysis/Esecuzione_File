@@ -2,7 +2,7 @@ name: Execute Tennis Notebook ATP e WTA
 
 on:
   schedule:
-    - cron: '30 */3 * * *'
+    - cron: '0 */5 * * *'
   workflow_dispatch:
 
 jobs:
