@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  ATP_job:
+  WTA_job:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
@@ -35,14 +35,14 @@ jobs:
 
     - name: Execute Notebook
       run: |
-        jupyter nbconvert --to notebook --execute ESECUZIONE_NOTEBOOK_TENNIS_M.ipynb --output executed_notebook.ipynb
+        jupyter nbconvert --to notebook --execute ESECUZIONE_NOTEBOOK_TENNIS_W.ipynb --output executed_notebook.ipynb
 
-  WTA_job:
-    needs: ATP_job
+  ATP_job:
+    needs: WTA_job
     runs-on: ubuntu-latest
     steps:
       - name: Attendere prima di eseguire il secondo job
-        run: sleep 900  # Attendere 15 minuti
+        run: sleep 600  # Attendere 10 minuti
         
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -70,4 +70,4 @@ jobs:
   
       - name: Execute Notebook
         run: |
-          jupyter nbconvert --to notebook --execute ESECUZIONE_NOTEBOOK_TENNIS_W.ipynb --output executed_notebook.ipynb
+          jupyter nbconvert --to notebook --execute ESECUZIONE_NOTEBOOK_TENNIS_M.ipynb --output executed_notebook.ipynb
