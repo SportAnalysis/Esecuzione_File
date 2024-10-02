@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  wta_job:
+  ATP_job:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
@@ -37,8 +37,8 @@ jobs:
       run: |
         jupyter nbconvert --to notebook --execute ESECUZIONE_NOTEBOOK_TENNIS_M.ipynb --output executed_notebook.ipynb
 
-  atp_job:
-    needs: wta_job
+  WTA_job:
+    needs: ATP_job
     runs-on: ubuntu-latest
     steps:
       - name: Attendere prima di eseguire il secondo job
