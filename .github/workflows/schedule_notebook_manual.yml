@@ -1,4 +1,4 @@
-name: Execute Tennis Manuale Notebook
+name: Execute Tennis Notebook Solo Manuale
 
 on:
   workflow_dispatch:
