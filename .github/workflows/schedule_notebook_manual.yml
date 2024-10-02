@@ -1,4 +1,4 @@
-name: Execute Manuale Notebook
+name: Execute Tennis Manuale Notebook
 
 on:
   workflow_dispatch:
