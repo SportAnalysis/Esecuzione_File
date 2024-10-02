@@ -1,4 +1,4 @@
-name: Execute Soccer Notebook
+name: Execute Football Notebook
 
 on:
   schedule:
