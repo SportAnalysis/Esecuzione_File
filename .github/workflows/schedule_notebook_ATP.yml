@@ -2,7 +2,7 @@ name: Execute Tennis Notebook ATP
 
 on:
   schedule:
-    - cron: '20 0/4 * * *'  # Esegui ogni 4 ore
+    - cron: '15 0/5 * * *'  # Esegui ogni 4 ore
   workflow_dispatch:
 
 jobs:
