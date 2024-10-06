@@ -34,7 +34,7 @@ jobs:
 
     - name: Execute Notebook
       run: |
-        jupyter nbconvert --to notebook --execute ESECUZIONE_NOTEBOOK_TENNIS_M.ipynb --output executed_notebook.ipynb
+        jupyter nbconvert --to notebook --execute ESECUZIONE_NOTEBOOK_TENNIS_W.ipynb --output executed_notebook.ipynb
 
     - name: Print output notebook
       run: |
