@@ -1,4 +1,4 @@
-name: Execute Tennis Notebook ATP
+name: Execute Tennis Notebook POWER
 
 on:
   schedule:
