@@ -2,8 +2,9 @@ name: Execute Tennis Notebook POWER
 
 on:
   schedule:
-    - cron: '*/5 * * * *'  # Esegue ogni 3 minuti
-  workflow_dispatch: {}
+    - cron: '0 0/5 * * *'  # Esegui ogni 4 ore
+  workflow_dispatch:
+
 jobs:
   execute-notebook:
     runs-on: ubuntu-latest
