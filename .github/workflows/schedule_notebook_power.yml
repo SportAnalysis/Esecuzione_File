@@ -2,7 +2,7 @@ name: Execute Tennis Notebook POWER
 
 on:
   schedule:
-    - cron: '*/5 * * * *'  # Esegue ogni 5 minuti
+    - cron: '*/3 * * * *'  # Esegue ogni 5 minuti
   workflow_dispatch:
 
 jobs:
