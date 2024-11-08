@@ -36,7 +36,7 @@ jobs:
 
     - name: Execute Notebook
       run: |
-        jupyter nbconvert --to notebook --execute ESECUZIONE_NOTEBOOK_DOPPI.ipynb --output executed_notebook.ipynb
+        jupyter nbconvert --to notebook --execute ESECUZIONE_NOTEBOOK_PREDICTION.ipynb --output executed_notebook.ipynb
 
     - name: Print output notebook
       run: |
