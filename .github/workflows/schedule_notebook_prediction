@@ -1,0 +1,43 @@
+name: Execute Tennis Notebook PREDICTION
+
+on:
+  schedule:
+    - cron: '0 0/8 * * *'  # Esegui ogni 8 ore
+  workflow_dispatch:
+
+jobs:
+  execute-notebook:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
+
+    - name: Install dependencies
+      run: |
+        pip install nbconvert
+        pip install jupyter
+        pip install ipykernel
+        pip install --upgrade gdown  # Per scaricare file da Google Drive
+        pip install requests pandas openpyxl
+        pip install selenium
+        pip install reportlab
+        pip install beautifulsoup4
+        pip install python-telegram-bot nest_asyncio
+        pip install matplotlib scipy
+        pip install gspread
+        pip install pillow  # Per importare PIL
+        pip install gspread_dataframe  # Per gestire Google Sheets
+
+    - name: Execute Notebook
+      run: |
+        jupyter nbconvert --to notebook --execute ESECUZIONE_NOTEBOOK_DOPPI.ipynb --output executed_notebook.ipynb
+
+    - name: Print output notebook
+      run: |
+        cat executed_notebook.ipynb
