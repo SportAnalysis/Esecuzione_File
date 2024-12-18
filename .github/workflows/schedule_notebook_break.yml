@@ -2,7 +2,7 @@ name: Execute Tennis Notebook BREAK
 
 on:
   schedule:
-    - cron: '0 0/2 * * *'  # Esegui ogni 4 ore
+    - cron: '0 0/1 * * *'
   workflow_dispatch:
 
 jobs:
@@ -20,23 +20,44 @@ jobs:
 
     - name: Install dependencies
       run: |
+        pip install gdown papermill pandas openpyxl
+        pip install python-telegram-bot nest_asyncio
+        pip install matplotlib scipy gspread pillow
         pip install nbconvert
         pip install jupyter
         pip install ipykernel
-        pip install --upgrade gdown  # Per scaricare file da Google Drive
+        pip install --upgrade gdown
         pip install requests pandas openpyxl
         pip install selenium
         pip install reportlab
         pip install beautifulsoup4
         pip install python-telegram-bot nest_asyncio
-        pip install matplotlib scipy
-        pip install gspread
-        pip install pillow  # Per importare PIL
-        pip install gspread_dataframe  # Per gestire Google Sheets
+        pip install gspread_dataframe
 
+    - name: Set up Git credentials
+      run: |
+        git config --global user.name "github-actions"
+        git config --global user.email "github-actions@github.com"
+        git config --global credential.helper store
+        echo "https://$GH_TOKEN:x-oauth-basic@github.com" > ~/.git-credentials
+      env:
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}  # Usa il secret GH_TOKEN per il push
+        
     - name: Execute Notebook
       run: |
         jupyter nbconvert --to notebook --execute ESECUZIONE_NOTEBOOK_BREAK.ipynb --output executed_notebook.ipynb
+
+    - name: Check for changes and commit
+      run: |
+        git add --all
+        if git diff --cached --quiet; then
+          echo "No changes detected, skipping commit."
+        else
+          git commit -m "Aggiornamento dati CSV"
+          git push origin main
+        fi
+      env:
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}  # Usa il secret GH_TOKEN per il push
 
     - name: Print output notebook
       run: |
