@@ -1,4 +1,4 @@
-name: Execute Tennis Notebooks
+name: Execute Tennis Notebooks ATP/WTA
 
 on:
   schedule:
